@@ -15,7 +15,7 @@ async function main() {
             .join(",");
 
         const issueMessage = `Thank you for creating the issue!  We will review it and get back to you shortly  \n\ncc: ${whoToCopy}`;
-        const client = (octokit = new github.GitHub(token));
+        const client = github.getOctokit(token);
         await client.issues.createComment({
             owner,
             repo,
@@ -29,4 +29,4 @@ async function main() {
 
 module.exports = { main };
 
-main()
+main();
