@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Chocrates/actions-samples/issues"
   },
-  "homepage": "https://github.com/Chocrates/actions-samples#readme"
+  "homepage": "https://github.com/Chocrates/actions-samples#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
 }
