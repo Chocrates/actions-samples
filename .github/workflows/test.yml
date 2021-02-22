@@ -11,6 +11,6 @@ jobs:
         - uses: actions/setup-node@v1
         - run: npm install
         - uses: './'
-          inputs:
+          with:
             github-token: ${{ secrest.GITHUB_TOKEN }}
             who-to-copy: 'chocrates'
