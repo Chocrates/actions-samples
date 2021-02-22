@@ -1,0 +1,11 @@
+name: 'Thank You Action'
+description: 'Simple action that thanks a user for opening an issue'
+inputs:
+  who-to-copy:
+    description: 'Comma separated list of GitHub users to copy'
+    required: true
+outputs:
+  greeting:
+    description: 'Returns the message added to the issue'
+runs:
+    using: 'node12
