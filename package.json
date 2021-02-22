@@ -1,24 +1,36 @@
 {
-  "name": "actions-samples",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Chocrates/actions-samples.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Chocrates/actions-samples/issues"
-  },
-  "homepage": "https://github.com/Chocrates/actions-samples#readme",
-  "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0"
-  }
+    "name": "actions-samples",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Chocrates/actions-samples.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Chocrates/actions-samples/issues"
+    },
+    "homepage": "https://github.com/Chocrates/actions-samples#readme",
+    "dependencies": {
+        "@actions/core": "^1.2.6",
+        "@actions/github": "^4.0.0"
+    },
+    "devDependencies": {
+        "jest": "^26.6.3",
+        "octomock": "^2.1.1"
+    },
+    "jest": {
+        "automock": false,
+        "setupFilesAfterEnv": [
+            "./setupJest.js"
+        ],
+        "testEnvironment": "node"
+    }
 }

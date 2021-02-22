@@ -1,0 +1,16 @@
+name: Test
+on:
+  issues:
+    types: [opened] 
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+        - run: npm install
+        - uses: './'
+          inputs:
+            github-token: ${{ secrest.GITHUB_TOKEN }}
+            who-to-copy: 'chocrates'
