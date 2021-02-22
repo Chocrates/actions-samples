@@ -7,7 +7,6 @@ async function main() {
         const { number } = github.context.payload.issue;
         const token = core.getInput("github-token");
 
-        core.debug("Before who to copy");
         const whoToCopy = core
             .getInput("who-to-copy")
             .split(",")
@@ -29,4 +28,6 @@ async function main() {
 
 module.exports = { main };
 
-main();
+if(process.env.GITHUB_REPOSITORY){
+    main();
+}
