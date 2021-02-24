@@ -3,8 +3,6 @@ name: Azure WebApp Deploy
 on:
   push:
     branches: [ main ]
-    paths:
-      - "azure/"
       
 jobs:
   changed-files:
