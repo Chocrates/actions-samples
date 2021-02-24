@@ -1,0 +1,21 @@
+name: Python Sample
+
+on:
+  push:
+    branches: [ main ]
+    path:
+      - "azure/"
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      with:
+        resourceGroupName: chocrates-webdeploy
+        template: ./azure/azuredeploy.json
+        parameters: ./azure/azuredeploy.parameters.json
