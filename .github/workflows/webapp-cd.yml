@@ -1,4 +1,4 @@
-name: Python Sample
+name: Azure WebApp Deploy
 
 on:
   push:
