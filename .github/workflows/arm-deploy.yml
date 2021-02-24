@@ -3,7 +3,7 @@ name: Python Sample
 on:
   push:
     branches: [ main ]
-    path:
+    paths:
       - "azure/"
       
 jobs:
