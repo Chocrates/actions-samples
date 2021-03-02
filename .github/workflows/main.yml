@@ -23,7 +23,7 @@ jobs:
       - name: Secret obfuscation
         env:
           IAMASECRET: ${{ secrets.secret }}
-        run:  echo $IAMSECRET
+        run:  echo $IAMASECRET
   build2:
     runs-on: ubuntu-latest
     needs: build
