@@ -20,6 +20,10 @@ jobs:
           python-version: '3.x'
       - name: Run a one-line script
         run: python -c 'print("Hello World")'
+      - name: Secret obfuscation
+        env:
+          IAMASECRET: ${{ secrets.secret }}
+        run:  echo $IAMSECRET
   build2:
     runs-on: ubuntu-latest
     needs: build
