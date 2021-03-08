@@ -1,0 +1,21 @@
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install @octokit/rest
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const {Octokit} = require(`${process.env.GITHUB_WORKSPACE}/node_modules/@octokit/rest`)
+            core.error(JSON.stringify(Octokit));
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
