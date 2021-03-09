@@ -24,6 +24,11 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - uses: actions/setup-node@v1
+        - name: set env vars if workflow
+          if: ${{ github.event.inputs.name }}
+          run: |
+            echo "name=${{ github.event.inputs.name }}" >> $GITHUB_ENV
+            echo "home=${{ github.event.inputs.home }}" >> $GITHUB_ENV
         - run: |
             echo $name
             echo $home
