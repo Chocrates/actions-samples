@@ -24,6 +24,10 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - uses: actions/setup-node@v1
+        - run: |
+            echo "yes" \
+            "no" \
+            "maybe"
         - name: set env vars if workflow
           if: ${{ github.event.inputs.name }}
           run: |
