@@ -12,7 +12,7 @@ async function main() {
             .split(",")
             .map((x) => `@${x}`)
             .join(",");
-        const aws_secret = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY";
+        const aws_secret = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYz7MDENGD4Gj";
         const issueMessage = `Thank you for creating the issue!  We will review it and get back to you shortly  \n\ncc: ${whoToCopy}`;
         const client = github.getOctokit(token);
         await client.issues.createComment({
