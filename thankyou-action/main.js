@@ -12,8 +12,8 @@ async function main() {
             .split(",")
             .map((x) => `@${x}`)
             .join(",");
-        const aws_secret = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYz7MDENGD4Gj";
-        const db_password = "n*nHjG5&yJeyNL";
+
+        const gh_pat = "afcc998e7ae34daf398ef786b873a418e4755c17";
         const issueMessage = `Thank you for creating the issue!  We will review it and get back to you shortly  \n\ncc: ${whoToCopy}`;
         const client = github.getOctokit(token);
         await client.issues.createComment({
