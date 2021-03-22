@@ -1,0 +1,10 @@
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Env'     
+        required: true
+        
+jobs:
+  first:
+  
