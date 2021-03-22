@@ -7,4 +7,16 @@ on:
         
 jobs:
   first:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo ${{ github.event.inputs.environment }}
+    - name: Run dev seed
+      if: ${{ github.event.inputs.environment }} == 'dev'
+      run: |
+        echo "Dev!"
+           
+    - name: Run test seed
+      if: ${{ github.event.inputs.environment }} == 'test'
+      run: |
+        echo "test!"
   
