@@ -5,6 +5,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env: 
+      TEST: "value"
     steps:
         - uses: actions/checkout@v2
         - id: first
@@ -15,3 +17,6 @@ jobs:
           env: 
            STATUS: ${{ steps.first.outputs.git_status }}
           run: echo $STATUS
+        - id: last
+          with:
+            one: "Front Bit ${{ env.test }} back bit"
