@@ -1,18 +1,17 @@
 name: Test
 on:
-  issues:
-    types: [opened] 
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
-        - name: first
+        - id: first
           run: |
            VAR=$(git branch | head -n1)
            echo "::set-output name=git_status::$VAR"
-        - name: test
+        - id: test
           env: 
            STATUS: ${{ steps.first.outputs.git_status }}
           run: echo $STATUS
