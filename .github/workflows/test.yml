@@ -8,12 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
-        - run: npm install
-        - uses: './'
-          with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            who-to-copy: 'chocrates'
         - run: |
            VAR=$(git branch | head -n1)
            echo "::set-output name=git_status::$VAR"
