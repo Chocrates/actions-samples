@@ -20,4 +20,4 @@ jobs:
         - id: last
           uses: actions/checkout@v2
           with:
-            one: Front Bit ${{ env.test }} back bit
+            one: "Front Bit ${{ env.TEST }} back bit"
