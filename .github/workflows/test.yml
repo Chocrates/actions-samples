@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
-        - run: |
+        - name: first
+          run: |
            VAR=$(git branch | head -n1)
            echo "::set-output name=git_status::$VAR"
+        - name: test
+          env: 
+           STATUS: ${{ steps.first.outputs.git_status }}
+          run: echo $STATUS
