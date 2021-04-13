@@ -18,5 +18,6 @@ jobs:
            STATUS: ${{ steps.first.outputs.git_status }}
           run: echo $STATUS
         - id: last
+          uses: actions/checkout@v2
           with:
             one: "Front Bit ${{ env.test }} back bit"
