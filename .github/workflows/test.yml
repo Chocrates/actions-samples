@@ -5,7 +5,7 @@ env:
   one: "TWO"
 
 jobs:
-  test-${{ env.ONE }}:
+  test-${{ env.one }}:
     runs-on: ubuntu-latest
     env: 
       TEST: "value"
