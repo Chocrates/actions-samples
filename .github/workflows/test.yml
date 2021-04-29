@@ -23,4 +23,4 @@ jobs:
             one: "Front Bit ${{ env.TEST }} back bit"
         - id: real-last
           if: ${{ always() }}
-          run: echo "::name::test"
+          run: echo "::name::iamaname"
