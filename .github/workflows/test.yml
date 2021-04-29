@@ -1,11 +1,13 @@
 name: Test
 on:
   workflow_dispatch:
+    inputs:
+      name:
 env:
   one: "TWO"
 
 jobs:
-  test-${{ env.one }}:
+  test-${{ github.event.inputs.name }}:
     runs-on: ubuntu-latest
     env: 
       TEST: "value"
