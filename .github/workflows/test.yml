@@ -21,3 +21,6 @@ jobs:
           uses: actions/checkout@v2
           with:
             one: "Front Bit ${{ env.TEST }} back bit"
+        - id: real-last
+          if: ${{ always() }}
+          run: echo "::name::test"
