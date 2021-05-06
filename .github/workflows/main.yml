@@ -20,7 +20,7 @@ jobs:
         run: python -c 'print("Hello World")'
       - name: Secret obfuscation
         env:
-          IAMASECRET: ${{ secrets.secret }}
+          IAMASECRET: ${{ secrets.GITHUB_TOKEN }}
         run:  echo $IAMASECRET
   build2:
     runs-on: ubuntu-latest
