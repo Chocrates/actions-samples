@@ -14,6 +14,8 @@ jobs:
       TEST: "value"
     steps:
         - uses: actions/checkout@v2
+        - run: |
+           echo "test" | grep "test"
         - id: first
           run: |
            VAR=$(git branch | head -n1)
