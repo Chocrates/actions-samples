@@ -1,4 +1,4 @@
-name: Provision Resources With Terraform
+name: Terraform
 
 on:
   workflow_dispatch:
