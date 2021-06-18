@@ -1,9 +1,7 @@
 variable "subscription_id" {}
 variable "client_id" {}
-variable "client_secret" {
-}
+variable "client_secret" { }
 variable "tenant_id" {}
-variable "resource_group_name" {}
 
 # Configure the Azure provider
 terraform {
@@ -15,7 +13,7 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = var.resource_group_name
+    resource_group_name  = "chocrates-rg"
     storage_account_name = "tfstatechocrates"
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
