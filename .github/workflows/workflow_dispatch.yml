@@ -11,12 +11,15 @@ jobs:
     steps:
     - run: echo ${{ github.event.inputs.environment }}
     - name: Run dev seed
+      env:
+        var: 1
+        var2: 2
       if: ${{ github.event.inputs.environment  == 'dev' }}
       run: |
-        echo "Dev!"
+        echo "export var=11"
            
     - name: Run test seed
       if: ${{ github.event.inputs.environment  == 'test' }}
       run: |
-        echo "test!"
+        env
   
