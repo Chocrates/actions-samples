@@ -1,15 +1,31 @@
-name: 'Thank You Action'
-description: 'Simple action that thanks a user for opening an issue'
+name: "Sample Private Composite Action"
+description: "Authenticates to a docker registry and executes the docker image"
+
 inputs:
-  github-token:
-    description: Token with which to make comment
+  registry_username:
+    description: “Username for image registry”
     required: true
-  who-to-copy:
-    description: 'Comma separated list of GitHub users to copy'
+  registry_password:
+    description: “Password for image registry”
     required: true
-outputs:
-  greeting:
-    description: 'Returns the message added to the issue'
+
 runs:
-    using: 'node12'
-    main: 'thankyou-action/main.js'
+  using: "composite"
+  steps:
+     - name: Checkout Code
+       uses: actions/checkout@v2
+       with:
+         fetch-depth: 0
+
+     - uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{inputs.registry_username}}
+          password: ${{inputs.registry_password}}
+
+     - name: Lint Code Base
+       uses: docker://ghcr.io/github/super-linter:latest
+       env:
+         ACTIONS_RUNNER_DEBUG: true
+         ERROR_ON_MISSING_EXEC_BIT: true
+         VALIDATE_ALL_CODEBASE: false
