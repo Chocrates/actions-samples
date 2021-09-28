@@ -19,7 +19,9 @@ runs:
 
      - name: Pull Random Image
        run: docker pull chocrates/comicbox:latest
+       shell: bash
 
-    - name: Run Random Image
-      run: docker run chocrates/comicbox:latest
+     - name: Run Random Image
+       run: docker run chocrates/comicbox:latest
+       shell: bash
 
