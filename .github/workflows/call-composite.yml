@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch
+
+jobs:
+  call-dockerfile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: chocrates/actions-samples@main
+        with:
+          registry_username: chocrates
+          registry_password: ${{secrets.GITHUB_TOKEN}}
