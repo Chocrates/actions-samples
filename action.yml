@@ -18,10 +18,10 @@ runs:
          fetch-depth: 0
 
      - uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{inputs.registry_username}}
-          password: ${{inputs.registry_password}}
+       with:
+         registry: ghcr.io
+         username: ${{inputs.registry_username}}
+         password: ${{inputs.registry_password}}
 
      - name: Lint Code Base
        uses: docker://ghcr.io/github/super-linter:latest
