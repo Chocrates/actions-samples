@@ -9,4 +9,4 @@ jobs:
       - uses: chocrates/actions-samples@main
         with:
           registry_username: chocrates
-          registry_password: ${{secrets.GITHUB_TOKEN}}
+          registry_password: ${{secrets.DOCKER_PASSWORD}}
