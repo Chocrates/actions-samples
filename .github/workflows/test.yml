@@ -1,30 +1,19 @@
 name: Test
 on:
   workflow_dispatch:
-    inputs:
-      name:
 env:
   one: "TWO"
 
 jobs:
   test:
-    name: ${{ github.event.inputs.name }}
     runs-on: ubuntu-latest
     env: 
       TEST: "value"
     steps:
-        - uses: actions/checkout@v2
-        - run: |
-           echo "test" | grep "test"
-        - id: first
-          run: |
-           VAR=$(git branch | head -n1)
-           echo "::set-output name=git_status::$VAR"
-        - id: test
-          env: 
-           STATUS: ${{ steps.first.outputs.git_status }}
-          run: echo $STATUS
-        - id: last
-          uses: actions/checkout@v2
-          with:
-            one: "Front Bit ${{ env.TEST }} back bit"
+    - name: View context attributes
+      uses: actions/github-script@v5
+      env:
+        environment: "variables"
+      with:
+        test: "value"
+        script: console.log(context)
