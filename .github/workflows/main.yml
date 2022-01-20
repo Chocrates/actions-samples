@@ -14,5 +14,5 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Secret obfuscation
         env:
-          IAMASECRET: ${{ secrets.GITHUB_TOKEN }}
+          IAMASECRET: ${{ secrets.SECRET }}
         run:  echo $IAMASECRET
