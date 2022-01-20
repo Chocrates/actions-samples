@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - run: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       - name: Secret obfuscation
         env:
           IAMASECRET: ${{ secrets.SECRET }}
