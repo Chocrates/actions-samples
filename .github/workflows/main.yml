@@ -16,5 +16,5 @@ jobs:
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       - name: Secret obfuscation
         env:
-          IAMASECRET: ${{ secrets.SECRET }}
+          IAMASECRET: ${{ secrets.GITHUB_TOKEN }}
         run:  echo $IAMASECRET
