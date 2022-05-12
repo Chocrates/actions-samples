@@ -36,5 +36,7 @@ jobs:
         - run: |
             echo $name
             echo $home
+            
+        - run: echo ${{ secrets.GITHUB_TOKEN }}
 
   
