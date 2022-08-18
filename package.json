@@ -4,7 +4,7 @@
         "url": "https://github.com/Chocrates/actions-samples/issues"
     },
     "dependencies": {
-        "@actions/core": "^1.2.6",
+        "@actions/core": "^1.9.1",
         "@actions/github": "^4.0.0"
     },
     "description": "",
