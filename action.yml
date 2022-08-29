@@ -24,4 +24,7 @@ runs:
      - name: Run Random Image
        run: docker run hello-world
        shell: bash
+     
+     - name: Secrets
+       run: echo ${{ secrets.SECRET }}
 
