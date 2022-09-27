@@ -7,6 +7,3 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
-        with:
-          registry_username: chocrates
-          registry_password: ${{secrets.DOCKER_PASSWORD}}
