@@ -6,7 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-      repository: chocrates/tools
+      with:
+        repository: chocrates/tools
     - name: Generate Token
       id: generate-token
       run: |
@@ -17,7 +18,6 @@ jobs:
         echo "::set-output name=token::$T"
       env:
         APP_ID: 245037
-        INSTALLATION_ID: 29960440
-        
-    - run: echo "${{ $steps.generate-token.outputs.token.value }}"
+        INSTALLATION_ID: 29960440     
+    - run: echo "${{ steps.generate-token.outputs.token.value }}"
  
