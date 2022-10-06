@@ -1,8 +1,6 @@
 name: Context
 on:
   workflow_dispatch:
-env:
-  one: "TWO"
 
 jobs:
   test:
@@ -10,10 +8,19 @@ jobs:
     env: 
       TEST: "value"
     steps:
-    - name: View context attributes
-      uses: actions/github-script@v5
+    - uses: actions/checkout@v3
+      repository: chocrates/tools
+    - name: Generate Token
+      id: generate-token
+      run: |
+        cd tools/generate-jwt-key
+        npm install
+        echo "${{ secrets.private_key }}" > private_key
+        T=$(curl --silent -X POST -H "Authorization: Bearer $(node generate-jwt-key.js --private-key private_key --app-id $APP_ID)" -H "Accept: application/vnd.github.v3+json" https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens | jq '.token' | sed 's/"//g')
+        echo "::set-output name=token::$T"
       env:
-        environment: "variables"
-      with:
-        test: "value"
-        script: console.log(context)
+        APP_ID: 245037
+        INSTALLATION_ID: 29960440
+        
+   - run: echo "${{ $steps.generate-token.outputs.token.value }}"
+ 
