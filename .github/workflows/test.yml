@@ -1,12 +1,9 @@
 name: Context
 on:
   workflow_dispatch:
-
 jobs:
   test:
     runs-on: ubuntu-latest
-    env: 
-      TEST: "value"
     steps:
     - uses: actions/checkout@v3
       repository: chocrates/tools
@@ -22,5 +19,5 @@ jobs:
         APP_ID: 245037
         INSTALLATION_ID: 29960440
         
-   - run: echo "${{ $steps.generate-token.outputs.token.value }}"
+    - run: echo "${{ $steps.generate-token.outputs.token.value }}"
  
