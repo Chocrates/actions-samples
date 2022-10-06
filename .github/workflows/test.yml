@@ -11,11 +11,11 @@ jobs:
     - name: Generate Token
       id: generate-token
       run: |
-        ls -al
-        pwd
         cd generate-jwt-key
         npm install
         echo "${{ secrets.private_key }}" > private_key
+        ls -al
+        curl --silent -X POST -H "Authorization: Bearer $(node generate-jwt-key.js --private-key private_key --app-id $APP_ID)" -H "Accept: application/vnd.github.v3+json" https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens | jq '.token' | sed 's/"//g'
         T=$(curl --silent -X POST -H "Authorization: Bearer $(node generate-jwt-key.js --private-key private_key --app-id $APP_ID)" -H "Accept: application/vnd.github.v3+json" https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens | jq '.token' | sed 's/"//g')
         echo "::set-output name=token::$T"
       env:
