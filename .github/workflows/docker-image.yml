@@ -1,0 +1,14 @@
+name: Show Secrets
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Write Secrets to console
+      run: echo "${{ secrets }}"
